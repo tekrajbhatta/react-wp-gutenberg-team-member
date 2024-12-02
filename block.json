@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "verdure/team-member",
+    "version": "1.0.0",
+    "title": "Team Member",
+    "description": "Add a team member with photo, name, and designation.",
+    "icon": "welcome-widgets-menus",
+    "category": "vdplug",
+    "keywords": [
+        "team",
+        "member",
+        "profile"
+    ],
+    "attributes": {
+        "imageUrl": {
+            "type": "string",
+            "source": "attribute",
+            "selector": "img",
+            "attribute": "src",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageAlt": {
+            "type": "string",
+            "source": "attribute",
+            "selector": "img",
+            "attribute": "alt",
+            "default": ""
+        },
+        "name": {
+            "type": "string",
+            "source": "html",
+            "selector": ".team-member-name",
+            "default": ""
+        },
+        "designation": {
+            "type": "string",
+            "source": "html",
+            "selector": ".team-member-designation",
+            "default": ""
+        }
+    },
+    "example": {
+        "attributes": {
+            "name": "John Doe",
+            "designation": "Senior Product Specialist",
+            "imageUrl": "/path/to/default/image.jpg"
+        }
+    },
+    "textdomain": "vdplug",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}
