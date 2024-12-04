@@ -7,6 +7,7 @@ import {
 } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
 import ArrowIcon from './arrow_right.svg';
+import ArrowIconGreen from './arrow_right_green.svg';
 
 function Edit({ attributes, setAttributes }) {
     const { imageUrl, imageId, imageAlt, name, designation } = attributes;
@@ -61,6 +62,11 @@ function Edit({ attributes, setAttributes }) {
                                                 alt=""
                                                 className="team-member-arrow"
                                             />
+                                            <img
+                                                src={ArrowIconGreen}
+                                                alt=""
+                                                className="team-member-arrow-green"
+                                            />
                                             <div className="team-member-image-buttons">
                                                 <Button
                                                     onClick={open}
@@ -82,22 +88,23 @@ function Edit({ attributes, setAttributes }) {
                             )}
                         />
                     </MediaUploadCheck>
-                </div>
-                <div className="team-member-info">
-                    <RichText
-                        tagName="h3"
-                        className="team-member-name"
-                        value={name}
-                        onChange={(name) => setAttributes({ name })}
-                        placeholder={__('Enter name...', 'vdplug')}
-                    />
-                    <RichText
-                        tagName="p"
-                        className="team-member-designation"
-                        value={designation}
-                        onChange={(designation) => setAttributes({ designation })}
-                        placeholder={__('Enter designation...', 'vdplug')}
-                    />
+
+                    <div className="team-member-info">
+                        <RichText
+                            tagName="h3"
+                            className="team-member-name"
+                            value={name}
+                            onChange={(name) => setAttributes({ name })}
+                            placeholder={__('Enter name...', 'vdplug')}
+                        />
+                        <RichText
+                            tagName="p"
+                            className="team-member-designation"
+                            value={designation}
+                            onChange={(designation) => setAttributes({ designation })}
+                            placeholder={__('Enter designation...', 'vdplug')}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
