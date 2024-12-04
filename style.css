@@ -12,22 +12,124 @@
 }
 
 .team-member-image-wrapper {
+    height: 343px;
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .team-member-image {
-    width: 100%;
+    /* width: 100%;
     height: 100%;
     border-radius: 50%;
+    object-fit: cover; */
+
+    border-radius: 50%;
+    height: 200px !important;
+    -o-object-fit: cover;
     object-fit: cover;
+    object-position: top;
+    width: 200px !important;
+    filter: grayscale(100%);
+    position: relative;
+}
+
+.team-member-content:hover .team-member-image {
+    border-radius: unset;
+    height: 100% !important;
+    width: 100% !important;
+    filter: unset;
+    object-position: unset;
+    transition: 1s ease;
+}
+
+/* .team-member-content:hover .team-member-image-wrapper {
+    margin-bottom: 50px;
+} */
+
+.team-member-content:hover .team-member-name,
+.team-member-content:hover .team-member-designation {
+    color: #fff;
+}
+
+
+.block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-name {
+    color: #15354d;
+}
+.block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-designation
+{
+    color: #445766;
+}
+
+.block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-content:hover .team-member-name {
+    color: #fff;
+}
+.block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-content:hover .team-member-designation
+{
+    color: #fff;
+}
+
+.team-member-image-wrapper::before {
+    content: '';
+    background-image: url("../../../static/team_circle.svg");
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: none;
+}
+
+.team-member-content:hover .team-member-image-wrapper::before {
+    display: block;
+}
+
+.block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-image-wrapper::before {
+    display: block;
 }
 
 .team-member-info {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    position: absolute;
+    bottom: 42px;
+    left: 28px;
+}
+
+.team-member-content:hover .team-member-image-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 0; */
+    height: 100%;
+    background-image: url("../../../static/team-image-shadow.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* z-index: 3; */
+    pointer-events: none;
+    /* border-radius: 50%; */
+    transition: 1s ease;
+
+}
+
+/* .team-member-content:hover .team-member-image-wrapper::after {
+    height: 100%;
+    transition: 1s ease;
+} */
+
+.team-member-content:hover .team-member-info {
+    z-index: 2;
+}
+
+.team-member-content:hover .team-member-arrow {
+    z-index: 3;
 }
 
 .team-member-upload-button {
@@ -74,9 +176,10 @@
 
 .team-member-image-buttons {
     position: absolute;
-    top: 100%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
+    /* transform: translateY(-50%); */
     display: flex;
     gap: 4px;
     margin-top: 8px;
@@ -160,8 +263,30 @@
 /* Arrow Icon on Image */
 .team-member-arrow {
     position: absolute;
-    bottom:12px;
-    right: 24px;
+    top: 45%;
+    right: 18%;
     width: 50px;
     height: 50px;
+}
+
+.block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-content:hover .team-member-image-buttons {
+    z-index: 4;
+}
+
+.team-member-arrow-green {
+    display: none;
+    position: absolute;
+    top: 45%;
+    right: 18%;
+    width: 50px;
+    height: 50px;
+}
+
+.team-member-content:hover .team-member-arrow {
+    display: none;
+}
+
+.team-member-content:hover .team-member-arrow-green {
+    display: block;
+    z-index: 3;
 }
