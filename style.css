@@ -435,6 +435,7 @@
 
 .block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-description {
     color: #445766;
+    margin: 0 !important;
 }
 
 .team-member-popup-details h3 {
@@ -485,4 +486,12 @@
 
 .team-member-popup-inner .linkedin-link:hover {
     text-decoration: underline;
+}
+
+.block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-linkedin {
+    color: #445766;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.94px;
+    margin: 0 !important;
 }

@@ -12,7 +12,7 @@ import CloseIcon from './close_btn.svg';
 import LogoLinkedIn from './ion_logo-linkedin.svg';
 
 function Edit({ attributes, setAttributes }) {
-    const { imageUrl, imageId, imageAlt, name, designation, description, popupOpen } = attributes;
+    const { imageUrl, imageId, imageAlt, name, designation, description, linkedin, popupOpen } = attributes;
     const blockProps = useBlockProps({
         className: 'team-member'
     });
@@ -113,6 +113,21 @@ function Edit({ attributes, setAttributes }) {
                             onChange={(designation) => setAttributes({ designation })}
                             placeholder={__('Enter designation...', 'vdplug')}
                         />
+
+                        <div className="linkedin-link-input">
+                            <label htmlFor="linkedin-link">
+                                {__('LinkedIn Profile URL', 'vdplug')}
+                            </label>
+                            <input
+                                type="url"
+                                id="linkedin-link"
+                                value={linkedin}
+                                onChange={(e) => setAttributes({ linkedin: e.target.value })}
+                                placeholder={__('Enter LinkedIn profile URL', 'vdplug')}
+                                className="components-text-control__input"
+                            />
+                        </div>
+
                         <RichText
                             tagName="p"
                             className="team-member-description"
@@ -148,7 +163,7 @@ function Edit({ attributes, setAttributes }) {
                                     <img src={imageUrl} alt={imageAlt} />
                                     <div className='linkedin-box'>
                                         <img src={LogoLinkedIn} alt="Close" />
-                                        <a href='#' className='linkedin-link'>Follow on LinkedIn</a>
+                                        <a href={linkedin} target='_blank' className='linkedin-link'>Follow on LinkedIn</a>
                                     </div>
                                 </div>
                                 <div className="team-member-popup-details">
