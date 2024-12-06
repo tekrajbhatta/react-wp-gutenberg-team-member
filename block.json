@@ -41,16 +41,28 @@
             "source": "html",
             "selector": ".team-member-designation",
             "default": ""
+        },
+        "description": {
+            "type": "string",
+            "source": "html",
+            "selector": ".team-member-description",
+            "default": ""
+        },
+        "popupOpen": {
+            "type": "boolean",
+            "default": false
         }
     },
     "example": {
         "attributes": {
             "name": "John Doe",
             "designation": "Senior Product Specialist",
-            "imageUrl": "/path/to/default/image.jpg"
+            "imageUrl": "/path/to/default/image.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
         }
     },
     "textdomain": "vdplug",
     "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+    "style": "file:./style-index.css",
+    "viewScript": "file:./view.js"
 }

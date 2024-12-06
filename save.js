@@ -3,7 +3,7 @@ import ArrowIcon from './arrow_right.svg';
 import ArrowIconGreen from './arrow_right_green.svg';
 
 function save({ attributes }) {
-    const { imageUrl, imageAlt, name, designation } = attributes;
+    const { imageUrl, imageAlt, name, designation, description } = attributes;
     const blockProps = useBlockProps.save({
         className: 'team-member'
     });
@@ -39,6 +39,36 @@ function save({ attributes }) {
                                 className="team-member-designation"
                                 value={designation}
                             />
+                        </div>
+                    </div>
+                )}
+
+                {/* Popup Structure */}
+                {imageUrl && (
+                    <div className="team-member-popup">
+                        <div className="team-member-popup-content">
+                            <button className="team-member-popup-close">
+                                &times;
+                            </button>
+                            <div className="team-member-popup-inner">
+                                <div className="team-member-popup-image">
+                                    <img src={imageUrl} alt={imageAlt} />
+                                </div>
+                                <div className="team-member-popup-details">
+                                    <RichText.Content
+                                        tagName="h3"
+                                        value={name}
+                                    />
+                                    <RichText.Content
+                                        tagName="p"
+                                        value={designation}
+                                    />
+                                    <RichText.Content
+                                        tagName="p"
+                                        value={description}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 )}

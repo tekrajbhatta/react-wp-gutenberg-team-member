@@ -10,7 +10,7 @@ import ArrowIcon from './arrow_right.svg';
 import ArrowIconGreen from './arrow_right_green.svg';
 
 function Edit({ attributes, setAttributes }) {
-    const { imageUrl, imageId, imageAlt, name, designation } = attributes;
+    const { imageUrl, imageId, imageAlt, name, designation, description, popupOpen } = attributes;
     const blockProps = useBlockProps({
         className: 'team-member'
     });
@@ -28,6 +28,13 @@ function Edit({ attributes, setAttributes }) {
             imageUrl: '',
             imageId: null,
             imageAlt: ''
+        });
+    };
+
+    // Toggle popup state (for editing experience)
+    const togglePopup = () => {
+        setAttributes({
+            popupOpen: !popupOpen
         });
     };
 
@@ -104,8 +111,49 @@ function Edit({ attributes, setAttributes }) {
                             onChange={(designation) => setAttributes({ designation })}
                             placeholder={__('Enter designation...', 'vdplug')}
                         />
+                        <RichText
+                            tagName="p"
+                            className="team-member-description"
+                            value={description}
+                            onChange={(description) => setAttributes({ description })}
+                            placeholder={__('Enter description...', 'vdplug')}
+                        />
                     </div>
                 </div>
+                {/* Popup Preview for Editor */}
+                {imageUrl && (
+                    <div
+                        className={`team-member-popup-preview ${popupOpen ? 'is-open' : ''}`}
+                        onClick={(e) => {
+                            // Close the popup when clicking outside the content
+                            if (e.target.classList.contains('team-member-popup-preview')) {
+                                togglePopup();
+                            }
+                        }}
+                    >
+                        <div className="team-member-popup-content">
+                            <button
+                                className="team-member-popup-close"
+                                onClick={(e) => {
+                                    e.stopPropagation(); // Prevent triggering the parent click event
+                                    togglePopup(); // Close the popup
+                                }}
+                            >
+                                &times;
+                            </button>
+                            <div className="team-member-popup-inner">
+                                <div className="team-member-popup-image">
+                                    <img src={imageUrl} alt={imageAlt} />
+                                </div>
+                                <div className="team-member-popup-details">
+                                    <h3>{name}</h3>
+                                    <p>{designation}</p>
+                                    <p>{description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
