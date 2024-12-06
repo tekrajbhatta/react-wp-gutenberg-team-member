@@ -20,11 +20,6 @@
 }
 
 .team-member-image {
-    /* width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover; */
-
     border-radius: 50%;
     height: 200px !important;
     -o-object-fit: cover;
@@ -44,15 +39,10 @@
     transition: 1s ease;
 }
 
-/* .team-member-content:hover .team-member-image-wrapper {
-    margin-bottom: 50px;
-} */
-
 .team-member-content:hover .team-member-name,
 .team-member-content:hover .team-member-designation {
     color: #fff;
 }
-
 
 .block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-name {
     color: #15354d;
@@ -61,14 +51,6 @@
 {
     color: #445766;
 }
-
-/* .block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-content:hover .team-member-name {
-    color: #fff;
-}
-.block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-content:hover .team-member-designation
-{
-    color: #fff;
-} */
 
 .team-member-image-wrapper::before {
     content: '';
@@ -102,23 +84,15 @@
     top: 0;
     left: 0;
     width: 100%;
-    /* height: 0; */
     height: 100%;
     background-image: url("../../../static/team-image-shadow.svg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* z-index: 3; */
     pointer-events: none;
-    /* border-radius: 50%; */
     transition: 1s ease;
 
 }
-
-/* .team-member-content:hover .team-member-image-wrapper::after {
-    height: 100%;
-    transition: 1s ease;
-} */
 
 .team-member-content:hover .team-member-info {
     z-index: 2;
@@ -175,7 +149,6 @@
     top: 30%;
     left: 50%;
     transform: translateX(-50%);
-    /* transform: translateY(-50%); */
     display: flex;
     gap: 4px;
     margin-top: 8px;
@@ -296,12 +269,6 @@
     align-items: center;
 }
 
-/* .block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-info {
-    height: 200px;
-    width: 200px;
-} */
-
-
 .block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-info {
     position: unset;
 }
@@ -348,12 +315,9 @@
 
 .team-member-popup-content {
     background-color: white;
-    /* border-radius: 10px; */
     width: 80%;
     max-width: 937px;
     position: relative;
-    /* padding: 20px; */
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
 .team-member-popup-close {
@@ -379,13 +343,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* flex-wrap: wrap; */
-    /* gap: 60px; */
 }
 
 .team-member-popup-image {
-    /* flex: 1; */
-    /* padding-right: 20px; */
     flex-basis: 33%;
     display: flex;
     flex-direction: column;
@@ -394,7 +354,6 @@
 .team-member-popup-image img {
     max-width: 100%;
     height: auto;
-    /* border-radius: 5px; */
 }
 
 .team-member-popup-details {
@@ -435,11 +394,10 @@
 
 .block-editor-block-list__block.wp-block.wp-block-verdure-team-member .team-member-description {
     color: #445766;
-    margin: 0 !important;
 }
 
 .team-member-popup-details h3 {
-    color: #15354D;
+    color: #15354D !important;
     margin: 0 0 10px 0;
     font-size: 26px;
     font-weight: 700;
@@ -448,7 +406,7 @@
 }
 
 .team-member-popup-details p {
-    color: #445766;
+    color: #445766 !important;
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
@@ -467,7 +425,6 @@
     justify-content: center;
     gap: 8px;
     padding: 22px 16px;
-    /* border-radius: 4px; */
 }
 
 .team-member-popup-inner .linkedin-box img {
@@ -493,5 +450,5 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 16.94px;
-    margin: 0 !important;
+    margin: 0;
 }

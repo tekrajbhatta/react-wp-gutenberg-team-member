@@ -1,4 +1,3 @@
-// view.js
 document.addEventListener('DOMContentLoaded', () => {
     const teamMembers = document.querySelectorAll('.wp-block-verdure-team-member');
 

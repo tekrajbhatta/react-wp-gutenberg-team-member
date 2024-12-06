@@ -8,11 +8,9 @@ import {
 import { Button } from '@wordpress/components';
 import ArrowIcon from './arrow_right.svg';
 import ArrowIconGreen from './arrow_right_green.svg';
-import CloseIcon from './close_btn.svg';
-import LogoLinkedIn from './ion_logo-linkedin.svg';
 
 function Edit({ attributes, setAttributes }) {
-    const { imageUrl, imageId, imageAlt, name, designation, description, linkedin, popupOpen } = attributes;
+    const { imageUrl, imageId, imageAlt, name, designation, description } = attributes;
     const blockProps = useBlockProps({
         className: 'team-member'
     });
@@ -30,13 +28,6 @@ function Edit({ attributes, setAttributes }) {
             imageUrl: '',
             imageId: null,
             imageAlt: ''
-        });
-    };
-
-    // Toggle popup state (for editing experience)
-    const togglePopup = () => {
-        setAttributes({
-            popupOpen: !popupOpen
         });
     };
 
@@ -68,12 +59,12 @@ function Edit({ attributes, setAttributes }) {
                                             />
                                             <img
                                                 src={ArrowIcon}
-                                                alt=""
+                                                alt="Arrow Icon"
                                                 className="team-member-arrow"
                                             />
                                             <img
                                                 src={ArrowIconGreen}
-                                                alt=""
+                                                alt="Arrow Icon Green"
                                                 className="team-member-arrow-green"
                                             />
                                             <div className="team-member-image-buttons">
@@ -97,7 +88,6 @@ function Edit({ attributes, setAttributes }) {
                             )}
                         />
                     </MediaUploadCheck>
-
                     <div className="team-member-info">
                         <RichText
                             tagName="h3"
@@ -113,21 +103,6 @@ function Edit({ attributes, setAttributes }) {
                             onChange={(designation) => setAttributes({ designation })}
                             placeholder={__('Enter designation...', 'vdplug')}
                         />
-
-                        <div className="linkedin-link-input">
-                            <label htmlFor="linkedin-link">
-                                {__('LinkedIn Profile URL', 'vdplug')}
-                            </label>
-                            <input
-                                type="url"
-                                id="linkedin-link"
-                                value={linkedin}
-                                onChange={(e) => setAttributes({ linkedin: e.target.value })}
-                                placeholder={__('Enter LinkedIn profile URL', 'vdplug')}
-                                className="components-text-control__input"
-                            />
-                        </div>
-
                         <RichText
                             tagName="p"
                             className="team-member-description"
@@ -137,44 +112,6 @@ function Edit({ attributes, setAttributes }) {
                         />
                     </div>
                 </div>
-                {/* Popup Preview for Editor */}
-                {imageUrl && (
-                    <div
-                        className={`team-member-popup-preview ${popupOpen ? 'is-open' : ''}`}
-                        onClick={(e) => {
-                            // Close the popup when clicking outside the content
-                            if (e.target.classList.contains('team-member-popup-preview')) {
-                                togglePopup();
-                            }
-                        }}
-                    >
-                        <div className="team-member-popup-content">
-                            <button
-                                className="team-member-popup-close"
-                                onClick={(e) => {
-                                    e.stopPropagation(); // In edit.js, this prevents triggering the parent click event
-                                    togglePopup(); // In edit.js, this closes the popup
-                                }}
-                            >
-                                <img src={CloseIcon} alt="Close" />
-                            </button>
-                            <div className="team-member-popup-inner">
-                                <div className="team-member-popup-image">
-                                    <img src={imageUrl} alt={imageAlt} />
-                                    <div className='linkedin-box'>
-                                        <img src={LogoLinkedIn} alt="Close" />
-                                        <a href={linkedin} target='_blank' className='linkedin-link'>Follow on LinkedIn</a>
-                                    </div>
-                                </div>
-                                <div className="team-member-popup-details">
-                                    <h3>{name}</h3>
-                                    <p>{designation}</p>
-                                    <p>{description}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     );

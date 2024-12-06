@@ -48,12 +48,6 @@
             "selector": ".team-member-description",
             "default": ""
         },
-        "linkedin": {
-            "type": "string",
-            "source": "html",
-            "selector": ".team-member-linkedin",
-            "default": ""
-        },
         "popupOpen": {
             "type": "boolean",
             "default": false
