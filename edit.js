@@ -8,6 +8,8 @@ import {
 import { Button } from '@wordpress/components';
 import ArrowIcon from './arrow_right.svg';
 import ArrowIconGreen from './arrow_right_green.svg';
+import CloseIcon from './close_btn.svg';
+import LogoLinkedIn from './ion_logo-linkedin.svg';
 
 function Edit({ attributes, setAttributes }) {
     const { imageUrl, imageId, imageAlt, name, designation, description, popupOpen } = attributes;
@@ -135,15 +137,19 @@ function Edit({ attributes, setAttributes }) {
                             <button
                                 className="team-member-popup-close"
                                 onClick={(e) => {
-                                    e.stopPropagation(); // Prevent triggering the parent click event
-                                    togglePopup(); // Close the popup
+                                    e.stopPropagation(); // In edit.js, this prevents triggering the parent click event
+                                    togglePopup(); // In edit.js, this closes the popup
                                 }}
                             >
-                                &times;
+                                <img src={CloseIcon} alt="Close" />
                             </button>
                             <div className="team-member-popup-inner">
                                 <div className="team-member-popup-image">
                                     <img src={imageUrl} alt={imageAlt} />
+                                    <div className='linkedin-box'>
+                                        <img src={LogoLinkedIn} alt="Close" />
+                                        <a href='#' className='linkedin-link'>Follow on LinkedIn</a>
+                                    </div>
                                 </div>
                                 <div className="team-member-popup-details">
                                     <h3>{name}</h3>
