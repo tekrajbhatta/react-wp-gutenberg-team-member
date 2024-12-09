@@ -5,12 +5,21 @@ import {
     MediaUploadCheck,
     RichText
 } from '@wordpress/block-editor';
-import { Button } from '@wordpress/components';
+import { Button, TextControl } from '@wordpress/components';
 import ArrowIcon from './arrow_right.svg';
 import ArrowIconGreen from './arrow_right_green.svg';
 
 function Edit({ attributes, setAttributes }) {
-    const { imageUrl, imageId, imageAlt, name, designation, description } = attributes;
+    // const { imageUrl, imageId, imageAlt, name, designation, description, linkedinLink = '#' } = attributes;
+    const { 
+        imageUrl = '', 
+        imageId = null, 
+        imageAlt = '', 
+        name = '', 
+        designation = '', 
+        description = '', 
+        linkedinLink = '' 
+    } = attributes;
     const blockProps = useBlockProps({
         className: 'team-member'
     });
@@ -102,6 +111,11 @@ function Edit({ attributes, setAttributes }) {
                             value={designation}
                             onChange={(designation) => setAttributes({ designation })}
                             placeholder={__('Enter designation...', 'vdplug')}
+                        />
+                        <TextControl
+                            value={linkedinLink}
+                            onChange={(linkedinLink) => setAttributes({ linkedinLink })}
+                            placeholder={__('Enter LinkedIn...', 'vdplug')}
                         />
                         <RichText
                             tagName="p"

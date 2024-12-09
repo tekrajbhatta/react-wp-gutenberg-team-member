@@ -5,7 +5,15 @@ import CloseIcon from './close_btn.svg';
 import LogoLinkedIn from './ion_logo-linkedin.svg';
 
 function save({ attributes }) {
-    const { imageUrl, imageAlt, name, designation, description } = attributes;
+    // const { imageUrl, imageAlt, name, designation, description, linkedinLink = '#' } = attributes;
+    const { 
+        imageUrl = '', 
+        imageAlt = '', 
+        name = '', 
+        designation = '', 
+        description = '', 
+        linkedinLink = '' 
+    } = attributes;
     const blockProps = useBlockProps.save({
         className: 'team-member'
     });
@@ -51,7 +59,14 @@ function save({ attributes }) {
                                     <img src={imageUrl} alt={imageAlt} />
                                     <div className='linkedin-box'>
                                         <img src={LogoLinkedIn} alt="Close" />
-                                        <a href="#" className='linkedin-link'>Follow on LinkedIn</a>
+                                        <a 
+                                            href={linkedinLink || '#'} 
+                                            className='linkedin-link' 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                        >
+                                            Follow on LinkedIn
+                                        </a>
                                     </div>
                                     
                                 </div>

@@ -48,6 +48,13 @@
             "selector": ".team-member-description",
             "default": ""
         },
+        "linkedinLink": {
+            "type": "string",
+            "source": "attribute",
+            "selector": ".linkedin-link",
+            "attribute": "href",
+            "default": ""
+        },
         "popupOpen": {
             "type": "boolean",
             "default": false
