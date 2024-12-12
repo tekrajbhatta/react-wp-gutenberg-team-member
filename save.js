@@ -57,6 +57,7 @@ function save({ attributes }) {
                             <div className="team-member-popup-inner">
                                 <div className="team-member-popup-image">
                                     <img src={imageUrl} alt={imageAlt} />
+                                    {linkedinLink && (
                                     <div className='linkedin-box'>
                                         <img src={LogoLinkedIn} alt="Close" />
                                         <a 
@@ -68,7 +69,7 @@ function save({ attributes }) {
                                             Follow on LinkedIn
                                         </a>
                                     </div>
-                                    
+                                    )}
                                 </div>
                                 <div className="team-member-popup-details">
                                     {name && (
